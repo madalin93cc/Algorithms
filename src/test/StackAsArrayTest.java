@@ -21,7 +21,7 @@ public class StackAsArrayTest {
 
     @Test
     public void test_push_and_pop() throws StackException{
-        stackAsArray = new StackAsArray(10);
+        stackAsArray = new StackAsArray();
 
         stackAsArray.push("A");
         Assume.assumeTrue(stackAsArray.size() == 1);
@@ -32,11 +32,17 @@ public class StackAsArrayTest {
         Assume.assumeFalse(stackAsArray.isEmpty());
         Assume.assumeTrue(stackAsArray.pop() == "A");
         Assume.assumeTrue(stackAsArray.isEmpty());
+        stackAsArray.push("C");
+        stackAsArray.push("D");
+        stackAsArray.push("");
     }
 
+    /* pentru situatia in care nu se folosea redimensionarea array-ului
+    * trebuie modificat si in implementare pentru ca exceptia sa fie auncata
+    * */
     @Test
     public void test_overflow_exception() throws StackException{
-        stackAsArray = new StackAsArray(2);
+        stackAsArray = new StackAsArray();
         stackAsArray.push("A");
         stackAsArray.push("B");
         try {
@@ -53,7 +59,7 @@ public class StackAsArrayTest {
         expectedException.expect(StackException.class);
         expectedException.expectMessage("Stiva goala");
 
-        stackAsArray = new StackAsArray(0);
+        stackAsArray = new StackAsArray();
         stackAsArray.pop();
     }
 }
