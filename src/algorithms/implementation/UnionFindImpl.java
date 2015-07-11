@@ -1,3 +1,6 @@
+package algorithms.implementation;
+import algorithms.interfaces.UnionFind;
+
 import java.util.Scanner;
 
 /**
@@ -20,13 +23,13 @@ import java.util.Scanner;
  *      Link root of smaller tree to root of larger tree.
  *      Update the sz[] array.
  */
-public class UnionFind {
+public class UnionFindImpl implements UnionFind{
 
     private int[] id;   // parent link(site indexes)
     private int[] sz;   // size of component for roots(site indexes)
     private int count;  // number of components
 
-    public UnionFind(int N){
+    public UnionFindImpl(int N){
         count = N;
         id = new int[N];
         for (int i = 0; i < N; i++) id[i] = i;
@@ -71,7 +74,7 @@ public class UnionFind {
         Scanner in = new Scanner(System.in);
         String line = null;
         int N = in.nextInt();
-        UnionFind uf = new UnionFind(N);
+        UnionFindImpl uf = new UnionFindImpl(N);
         line = in.nextLine();
         while (!(line = in.nextLine()).isEmpty())
         {
