@@ -6,23 +6,23 @@ import algorithms.interfaces.Queue;
  * Coada implementata ca linked list
  * enq si deq liniare
  */
-public class QueueAsLinkedList implements Queue {
+public class QueueAsLinkedList<E> implements Queue<E> {
 
     private Node first, last;
     private int N = 0;
 
     private class Node{
-        String item;
+        E item;
         Node next;
 
-        Node(String item, Node next){
+        Node(E item, Node next){
             this.item = item;
             this.next = next;
         }
     }
 
     @Override
-    public void enqueue(String s) {
+    public void enqueue(E s) {
         Node oldlast = last;
         last = new Node(s, oldlast);
         if (isEmpty()){
@@ -35,9 +35,9 @@ public class QueueAsLinkedList implements Queue {
     }
 
     @Override
-    public String dequeue() throws QueueException{
+    public E dequeue() throws QueueException{
         if (N == 0) throw new QueueException("coada goala");
-        String item = first.item;
+        E item = first.item;
         first = first.next;
         if (isEmpty()){
             last = null;

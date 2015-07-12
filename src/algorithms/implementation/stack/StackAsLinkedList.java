@@ -9,32 +9,32 @@ import algorithms.interfaces.Stack;
  * + fiecare operatie are garantia vitezei constante fata de array implementation
  * resize() apelat doar cand dimensiunea stivei este o putere a lui 2
  */
-public class StackAsLinkedList implements Stack {
+public class StackAsLinkedList<E> implements Stack<E> {
 
     private Node first = null;
     private int N = 0;
 
     private class Node{
-        String item;
+        E item;
         Node next;
 
-        Node(String item, Node next){
+        Node(E item, Node next){
             this.item = item;
             this.next = next;
         }
     }
 
     @Override
-    public void push(String s) {
+    public void push(E s) {
         Node oldfirst = first;
         first = new Node(s, oldfirst);
         N++;
     }
 
     @Override
-    public String pop() throws StackException{
+    public E pop() throws StackException{
         if (isEmpty()) throw new StackException("stiva goala");
-        String item  = first.item;
+        E item  = first.item;
         first = first.next;
         N--;
         return item;

@@ -8,27 +8,27 @@ import algorithms.interfaces.Queue;
  * operatie enq liniara
  * TODO head si tail modulo capacity pentru deq eficien
  */
-public class QueueAsArray implements Queue {
+public class QueueAsArray<E> implements Queue<E> {
 
-    String [] queue;
+    E [] queue;
     private int N;
 
     public QueueAsArray() {
-        queue = new String[1];
+        queue = (E[]) new Object[1];
         N = 0;
     }
 
     @Override
-    public void enqueue(String s) {
+    public void enqueue(E s) {
         if (N == queue.length)
             resize(queue.length * 2);
         queue[N++] = s;
     }
 
     @Override
-    public String dequeue() throws QueueException{
+    public E dequeue() throws QueueException{
         if (N == 0) throw new QueueException("coada goala");
-        String item = queue[0];
+        E item = queue[0];
         for (int i = 0; i < N - 1; i++){
             queue[i] = queue[i + 1];
         }
@@ -49,7 +49,7 @@ public class QueueAsArray implements Queue {
     }
 
     private void resize(int size){
-        String[] new_queue = new String[size];
+        E[] new_queue = (E[])new Object[size];
         for(int i = 0; i < N; i++){
             new_queue[i] = queue[i];
         }
