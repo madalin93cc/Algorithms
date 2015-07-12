@@ -6,6 +6,7 @@ import algorithms.interfaces.Queue;
  * Coada folosing resizable array
  * operatie deq costisitoare
  * operatie enq liniara
+ * TODO head si tail modulo capacity pentru deq eficien
  */
 public class QueueAsArray implements Queue {
 
