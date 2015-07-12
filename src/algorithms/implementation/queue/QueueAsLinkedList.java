@@ -3,7 +3,8 @@ package algorithms.implementation.queue;
 import algorithms.interfaces.Queue;
 
 /**
- * Created by Colezea on 11/07/2015.
+ * Coada implementata ca linked list
+ * enq si deq liniare
  */
 public class QueueAsLinkedList implements Queue {
 
@@ -34,7 +35,8 @@ public class QueueAsLinkedList implements Queue {
     }
 
     @Override
-    public String dequeue() {
+    public String dequeue() throws QueueException{
+        if (N == 0) throw new QueueException("coada goala");
         String item = first.item;
         first = first.next;
         if (isEmpty()){
