@@ -2,6 +2,8 @@ package algorithms.implementation.stack;
 
 import algorithms.interfaces.Stack;
 
+import java.util.Iterator;
+
 /**
  * Implementare de stiva folosint array
  * + fiecare operatie ia un timp constant amortizat
@@ -50,5 +52,28 @@ public class StackAsArray<E> implements Stack<E>{
             new_stack[i] = stack[i];
         }
         stack = new_stack;
+    }
+
+    @Override
+    public Iterator<E> iterator(){
+        return new StackIterator();
+    }
+
+    private class StackIterator implements Iterator<E>{
+        private int i = N;
+        @Override
+        public boolean hasNext() {
+            return i > 0;
+        }
+
+        @Override
+        public E next() {
+            return stack[--i];
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }

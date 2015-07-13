@@ -5,6 +5,8 @@ import algorithms.implementation.stack.StackException;
 import org.junit.Assume;
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 
 /**
@@ -12,7 +14,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
  */
 public class StackAsLinkedListTest {
 
-    StackAsLinkedList stackAsLinkedList;
+    StackAsLinkedList<String> stackAsLinkedList;
 
     @Test
     public void test_push_and_pop() throws StackException{
@@ -37,6 +39,21 @@ public class StackAsLinkedListTest {
         }
         catch (Exception e){
             Assume.assumeThat(e, instanceOf(StackException.class));
+        }
+    }
+
+    @Test
+    public void test_iterator(){
+        stackAsLinkedList = new StackAsLinkedList();
+        Iterator<String> iterator = stackAsLinkedList.iterator();
+        Assume.assumeFalse(iterator.hasNext());
+        stackAsLinkedList.push("A");
+        iterator = stackAsLinkedList.iterator();
+        Assume.assumeTrue(iterator.hasNext());
+        stackAsLinkedList.push("B");
+        stackAsLinkedList.push("C");
+        for (String s: stackAsLinkedList){
+            System.out.println(s);
         }
     }
 }

@@ -2,6 +2,8 @@ package algorithms.implementation.queue;
 
 import algorithms.interfaces.Queue;
 
+import java.util.Iterator;
+
 /**
  * Coada folosing resizable array
  * operatie deq costisitoare
@@ -54,5 +56,29 @@ public class QueueAsArray<E> implements Queue<E> {
             new_queue[i] = queue[i];
         }
         queue = new_queue;
+    }
+
+    @Override
+    public Iterator<E> iterator(){
+        return new QueueIterator();
+    }
+
+    private class QueueIterator implements Iterator<E>{
+        private int i = 0;
+
+        @Override
+        public boolean hasNext() {
+            return i < N;
+        }
+
+        @Override
+        public E next() {
+            return queue[i++];
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }

@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 
 /**
@@ -13,7 +15,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
  */
 public class QueueAsArrayTest {
 
-    QueueAsArray queueAsArray;
+    QueueAsArray<String> queueAsArray;
 
     @Test
     public void test_functionality() throws QueueException{
@@ -36,6 +38,21 @@ public class QueueAsArrayTest {
         }
         catch (Exception e){
             Assert.assertThat(e, instanceOf(QueueException.class));
+        }
+    }
+
+    @Test
+    public void test_iterator(){
+        queueAsArray = new QueueAsArray();
+        Iterator<String> iterator = queueAsArray.iterator();
+        Assume.assumeFalse(iterator.hasNext());
+        queueAsArray.enqueue("A");
+        iterator = queueAsArray.iterator();
+        Assume.assumeTrue(iterator.hasNext());
+        queueAsArray.enqueue("B");
+        queueAsArray.enqueue("C");
+        for (String s: queueAsArray){
+            System.out.println(s);
         }
     }
 }

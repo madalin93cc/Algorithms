@@ -2,6 +2,8 @@ package algorithms.implementation.stack;
 
 import algorithms.interfaces.Stack;
 
+import java.util.Iterator;
+
 /**
  * Implementare de stiva folosing linked list
  * + fiecare operatie dureaza timp constant in cel mai rau caz
@@ -18,16 +20,16 @@ public class StackAsLinkedList<E> implements Stack<E> {
         E item;
         Node next;
 
-        Node(E item, Node next){
+        Node(E item){
             this.item = item;
-            this.next = next;
         }
     }
 
     @Override
     public void push(E s) {
         Node oldfirst = first;
-        first = new Node(s, oldfirst);
+        first = new Node(s);
+        first.next = oldfirst;
         N++;
     }
 
@@ -48,5 +50,31 @@ public class StackAsLinkedList<E> implements Stack<E> {
     @Override
     public int size() {
         return N;
+    }
+
+    @Override
+    public Iterator<E> iterator(){
+        return new StackIterator();
+    }
+
+    private class StackIterator implements Iterator<E>{
+        private Node current = first;
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
+
+        @Override
+        public E next() {
+            E item = current.item;
+            current = current.next;
+            return item;
+        }
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
     }
 }

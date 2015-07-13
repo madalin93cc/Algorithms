@@ -2,6 +2,8 @@ package algorithms.implementation.queue;
 
 import algorithms.interfaces.Queue;
 
+import java.util.Iterator;
+
 /**
  * Coada implementata ca linked list
  * enq si deq liniare
@@ -15,16 +17,15 @@ public class QueueAsLinkedList<E> implements Queue<E> {
         E item;
         Node next;
 
-        Node(E item, Node next){
+        Node(E item){
             this.item = item;
-            this.next = next;
         }
     }
 
     @Override
     public void enqueue(E s) {
         Node oldlast = last;
-        last = new Node(s, oldlast);
+        last = new Node(s);
         if (isEmpty()){
             first = last;
         }
@@ -54,5 +55,31 @@ public class QueueAsLinkedList<E> implements Queue<E> {
     @Override
     public int size() {
         return N;
+    }
+
+    @Override
+    public Iterator<E> iterator(){
+        return new QueueIterator();
+    }
+
+    private class QueueIterator implements Iterator<E>{
+        private Node current = first;
+
+        @Override
+        public boolean hasNext() {
+            return current != null;
+        }
+
+        @Override
+        public E next() {
+            E item = current.item;
+            current = current.next;
+            return item;
+        }
+
+        @Override
+        public void remove() {
+            throw new UnsupportedOperationException();
+        }
     }
 }

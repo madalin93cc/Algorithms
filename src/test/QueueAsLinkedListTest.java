@@ -6,13 +6,15 @@ import org.junit.Assert;
 import org.junit.Assume;
 import org.junit.Test;
 
+import java.util.Iterator;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 
 /**
  * Created by Colezea on 11/07/2015.
  */
 public class QueueAsLinkedListTest {
-    QueueAsLinkedList queueAsLinkedList;
+    QueueAsLinkedList<String> queueAsLinkedList;
 
     @Test
     public void test_functionality() throws QueueException{
@@ -35,6 +37,21 @@ public class QueueAsLinkedListTest {
         }
         catch (Exception e){
             Assert.assertThat(e, instanceOf(QueueException.class));
+        }
+    }
+
+    @Test
+    public void test_iterator(){
+        queueAsLinkedList = new QueueAsLinkedList();
+        Iterator<String> iterator = queueAsLinkedList.iterator();
+        Assume.assumeFalse(iterator.hasNext());
+        queueAsLinkedList.enqueue("A");
+        iterator = queueAsLinkedList.iterator();
+        Assume.assumeTrue(iterator.hasNext());
+        queueAsLinkedList.enqueue("B");
+        queueAsLinkedList.enqueue("C");
+        for (String s: queueAsLinkedList){
+            System.out.println(s);
         }
     }
 }

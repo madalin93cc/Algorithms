@@ -8,6 +8,8 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import java.util.Iterator;
+
 import static org.hamcrest.CoreMatchers.instanceOf;
 
 /**
@@ -15,7 +17,7 @@ import static org.hamcrest.CoreMatchers.instanceOf;
  */
 public class StackAsArrayTest {
 
-    StackAsArray stackAsArray;
+    StackAsArray<String> stackAsArray;
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
 
@@ -61,5 +63,20 @@ public class StackAsArrayTest {
 
         stackAsArray = new StackAsArray();
         stackAsArray.pop();
+    }
+
+    @Test
+    public void test_iterator() throws StackException{
+        stackAsArray = new StackAsArray();
+        Iterator<String> iterator = stackAsArray.iterator();
+        Assume.assumeFalse(iterator.hasNext());
+        stackAsArray.push("A");
+        iterator = stackAsArray.iterator();
+        Assume.assumeTrue(iterator.hasNext());
+        stackAsArray.push("B");
+        stackAsArray.push("C");
+        for (String s: stackAsArray){
+            System.out.println(s);
+        }
     }
 }
