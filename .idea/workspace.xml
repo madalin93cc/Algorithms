@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3bf56ac6-a6df-4d22-81eb-2a773b763167" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\Projects\Algorithms\.idea\uiDesigner.xml" afterPath="" />
       <change type="DELETED" beforePath="D:\Projects\Algorithms\.idea\workspace.xml" afterPath="" />
     </list>
     <ignored path="Algorithms.iws" />
@@ -125,8 +124,8 @@
       <file leaf-file-name="StackAsArray.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/algorithms/implementation/stack/StackAsArray.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25330397">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.4030837">
+              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#476#477#0" expanded="true" />
@@ -708,7 +707,7 @@
       <created>1436770604296</created>
       <option name="number" value="Default" />
       <updated>1436770604296</updated>
-      <workItem from="1436770609517" duration="5266000" />
+      <workItem from="1436770609517" duration="5290000" />
     </task>
     <task id="LOCAL-00001" summary="Add iterators">
       <created>1436788899857</created>
@@ -728,11 +727,17 @@
       <option name="project" value="LOCAL" />
       <updated>1436789370856</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="delete .idea">
+      <created>1436789408174</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1436789408174</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5266000" />
+    <option name="totallyTimeSpent" value="5290000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -920,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/algorithms/implementation/stack/StackAsArray.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25330397">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="29" selection-end-line="9" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.4030837">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#476#477#0" expanded="true" />
