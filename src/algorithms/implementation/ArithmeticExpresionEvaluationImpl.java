@@ -2,23 +2,31 @@ package algorithms.implementation;
 
 import algorithms.implementation.stack.StackAsLinkedList;
 import algorithms.implementation.stack.StackException;
+import algorithms.interfaces.ArithmeticalExpresionEvaluation;
 import algorithms.interfaces.Stack;
+
+import java.util.NoSuchElementException;
 
 /**
  * Clasa pentru evaluarea expresiilor aritmetice in forma infixata
  * E.W. Dijkstra
  */
-public final class ArithmeticExpresionEvaluation {
+public final class ArithmeticExpresionEvaluationImpl implements ArithmeticalExpresionEvaluation {
     private Stack<String> ops = new StackAsLinkedList<String>();
     private Stack<Double> nums = new StackAsLinkedList<Double>();
     private String expression;
 
-    public ArithmeticExpresionEvaluation(){
+    public ArithmeticExpresionEvaluationImpl(){
         super();
     }
 
-    public ArithmeticExpresionEvaluation(String expression){
+    public ArithmeticExpresionEvaluationImpl(String expression){
         this.expression = expression;
+    }
+
+    public Double evaluate() throws StackException{
+        if (this.expression == null) throw new NoSuchElementException("Expresie nespecificata");
+        return evaluate(this.expression);
     }
 
     public Double evaluate(String expression) throws StackException{
@@ -50,10 +58,5 @@ public final class ArithmeticExpresionEvaluation {
             }
         }
         return nums.pop();
-    }
-
-    public static void main(String args[]) throws StackException{
-        ArithmeticExpresionEvaluation arithmeticExpresionEvaluation = new ArithmeticExpresionEvaluation();
-        arithmeticExpresionEvaluation.evaluate("( 1 + ( ( 2 + 3 ) * ( 4 * 5 ) ) )");
     }
 }
