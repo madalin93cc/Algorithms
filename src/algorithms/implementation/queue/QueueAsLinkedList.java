@@ -59,6 +59,7 @@ public class QueueAsLinkedList<E> implements Queue<E> {
 
     @Override
     public E peek() throws QueueException {
+        if (this.isEmpty()) return null;
         return first.item;
     }
 

@@ -59,6 +59,7 @@ public class QueueAsArrayTest {
     @Test
     public void test_peek() throws QueueException{
         queueAsArray = new QueueAsArray();
+        Assume.assumeTrue(queueAsArray.peek() == null);
         queueAsArray.enqueue("A");
         queueAsArray.enqueue("B");
         Assume.assumeTrue(queueAsArray.peek().compareTo("A") == 0);

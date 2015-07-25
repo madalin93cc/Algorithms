@@ -48,6 +48,7 @@ public class StackAsArray<E> implements Stack<E>{
 
     @Override
     public E peek() throws StackException {
+        if (this.isEmpty()) return null;
         return stack[N - 1];
     }
 

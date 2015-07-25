@@ -54,6 +54,7 @@ public class StackAsLinkedList<E> implements Stack<E> {
 
     @Override
     public E peek() throws StackException {
+        if (this.isEmpty()) return null;
         return first.item;
     }
 

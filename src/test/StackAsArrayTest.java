@@ -83,6 +83,7 @@ public class StackAsArrayTest {
     @Test
     public void test_peek() throws StackException{
         stackAsArray = new StackAsArray();
+        Assume.assumeTrue(stackAsArray.peek() == null);
         stackAsArray.push("a");
         stackAsArray.push("b");
         Assume.assumeTrue(stackAsArray.peek().compareTo("b") == 0);

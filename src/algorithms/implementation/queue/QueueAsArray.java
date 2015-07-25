@@ -52,6 +52,7 @@ public class QueueAsArray<E> implements Queue<E> {
 
     @Override
     public E peek() throws QueueException {
+        if (this.isEmpty()) return null;
         return queue[0];
     }
 
