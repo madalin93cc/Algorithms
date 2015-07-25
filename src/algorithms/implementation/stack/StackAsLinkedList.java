@@ -53,6 +53,11 @@ public class StackAsLinkedList<E> implements Stack<E> {
     }
 
     @Override
+    public E peek() throws StackException {
+        return first.item;
+    }
+
+    @Override
     public Iterator<E> iterator(){
         return new StackIterator();
     }

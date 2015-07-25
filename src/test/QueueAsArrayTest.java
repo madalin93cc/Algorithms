@@ -55,4 +55,14 @@ public class QueueAsArrayTest {
             System.out.println(s);
         }
     }
+
+    @Test
+    public void test_peek() throws QueueException{
+        queueAsArray = new QueueAsArray();
+        queueAsArray.enqueue("A");
+        queueAsArray.enqueue("B");
+        Assume.assumeTrue(queueAsArray.peek().compareTo("A") == 0);
+        queueAsArray.dequeue();
+        Assume.assumeTrue(queueAsArray.peek().compareTo("B") == 0);
+    }
 }

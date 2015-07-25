@@ -10,4 +10,5 @@ public interface Stack<E> extends Iterable<E>{
     E pop() throws StackException;
     boolean isEmpty();
     int size();
+    E peek() throws StackException;
 }
