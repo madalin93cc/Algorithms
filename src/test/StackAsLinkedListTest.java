@@ -56,4 +56,16 @@ public class StackAsLinkedListTest {
             System.out.println(s);
         }
     }
+
+    @Test
+    public void test_peek() throws StackException{
+        stackAsLinkedList = new StackAsLinkedList();
+        Assume.assumeTrue(stackAsLinkedList.peek() == null);
+        stackAsLinkedList.push("a");
+        stackAsLinkedList.push("b");
+        Assume.assumeTrue(stackAsLinkedList.peek().compareTo("b") == 0);
+        Assume.assumeTrue(stackAsLinkedList.peek().compareTo("b") == 0);
+        stackAsLinkedList.pop();
+        Assume.assumeTrue(stackAsLinkedList.peek().compareTo("a") == 0);
+    }
 }

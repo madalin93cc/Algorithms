@@ -54,4 +54,15 @@ public class QueueAsLinkedListTest {
             System.out.println(s);
         }
     }
+
+    @Test
+    public void test_peek() throws QueueException{
+        queueAsLinkedList = new QueueAsLinkedList<String>();
+        Assume.assumeTrue(queueAsLinkedList.peek() == null);
+        queueAsLinkedList.enqueue("A");
+        queueAsLinkedList.enqueue("B");
+        Assume.assumeTrue(queueAsLinkedList.peek().compareTo("A") == 0);
+        queueAsLinkedList.dequeue();
+        Assume.assumeTrue(queueAsLinkedList.peek().compareTo("B") == 0);
+    }
 }

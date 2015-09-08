@@ -46,6 +46,12 @@ public class StackAsArray<E> implements Stack<E>{
         return N;
     }
 
+    @Override
+    public E peek() throws StackException {
+        if (this.isEmpty()) return null;
+        return stack[N - 1];
+    }
+
     private void resize(int dimension){
         E[] new_stack = (E[])new Object[dimension];
         for (int i = 0; i < N; i++){

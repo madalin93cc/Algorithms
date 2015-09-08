@@ -50,6 +50,12 @@ public class QueueAsArray<E> implements Queue<E> {
         return N;
     }
 
+    @Override
+    public E peek() throws QueueException {
+        if (this.isEmpty()) return null;
+        return queue[0];
+    }
+
     private void resize(int size){
         E[] new_queue = (E[])new Object[size];
         for(int i = 0; i < N; i++){

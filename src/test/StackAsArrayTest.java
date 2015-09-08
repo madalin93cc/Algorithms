@@ -79,4 +79,16 @@ public class StackAsArrayTest {
             System.out.println(s);
         }
     }
+
+    @Test
+    public void test_peek() throws StackException{
+        stackAsArray = new StackAsArray();
+        Assume.assumeTrue(stackAsArray.peek() == null);
+        stackAsArray.push("a");
+        stackAsArray.push("b");
+        Assume.assumeTrue(stackAsArray.peek().compareTo("b") == 0);
+        Assume.assumeTrue(stackAsArray.peek().compareTo("b") == 0);
+        stackAsArray.pop();
+        Assume.assumeTrue(stackAsArray.peek().compareTo("a") == 0);
+    }
 }
